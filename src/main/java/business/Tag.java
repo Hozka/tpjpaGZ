@@ -1,5 +1,6 @@
 package business;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 
 @Entity
-public class Tag {
+public class Tag implements Serializable{
 	@Id
 	@GeneratedValue
 	private long tagId;

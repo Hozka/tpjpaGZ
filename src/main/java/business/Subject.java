@@ -1,12 +1,13 @@
 package business;
 
 import javax.persistence.Entity;
+import java.io.Serializable;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 
 @Entity
-public class Subject {
+public class Subject implements Serializable {
 	
 	@Id
 	@GeneratedValue
