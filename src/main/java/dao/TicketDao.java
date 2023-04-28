@@ -4,8 +4,8 @@ import business.Ticket;
 
 public class TicketDao  extends AbstractJpaDao<Long, Ticket>{
 
-	public TicketDao(Class<Ticket> clazz) {
-		super(clazz);
+	public TicketDao() {
+		super(Ticket.class);
 		
 	}
 

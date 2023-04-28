@@ -6,7 +6,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement(name = "Comment")
 @Entity
 public class Comment implements Serializable {
 	
@@ -14,12 +16,11 @@ public class Comment implements Serializable {
 	@GeneratedValue
 	private long commentId;
 	
-	private String content;
-	//A un ticket sont associés plusieurs commentaires
+	//Le texte du commentaire
+	private String texte;
 	
 	
-	
-	
+	//A un ticket sont associï¿½s plusieurs commentaires
 	@ManyToOne
 	private Ticket ticket;
 	
@@ -34,12 +35,12 @@ public class Comment implements Serializable {
 		this.commentId = commentId;
 	}
 
-	public String getContent() {
-		return content;
+	public String getTexte() {
+		return texte;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setTexte(String texte) {
+		this.texte = texte;
 	}
 
 	public Ticket getTicket() {

@@ -8,31 +8,31 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlElement;
 
 @Entity
 public class UserSupport extends User {
-	
-	
-	private String content;
-	//relation commentaire et userSupport
-	
+
+	/*
+	 * Liste des commentaires de l'user support
+	 */
 	@OneToMany(mappedBy = "userSupport")
-	private List<Comment> comments= new ArrayList<Comment>();
-	
-	// relation ticket et utilisateur Support
+	private List<Comment> comments;
+
+	/*
+	 * Liste des tickets pris en charge par le support
+	 */
 	@ManyToMany
-	private List<Ticket> ticketList= new ArrayList<Ticket>();
+	private List<Ticket> ticketList;
 
 	
-
-	public String getContent() {
-		return content;
+	public UserSupport() {
+		comments = new ArrayList<Comment>();
+		ticketList = new ArrayList<Ticket>();
+		setType("1");
 	}
 
-	public void setContent(String content) {
-		this.content = content;
-	}
-
+	@XmlElement(name = "comments")
 	public List<Comment> getComments() {
 		return comments;
 	}
@@ -41,6 +41,7 @@ public class UserSupport extends User {
 		this.comments = comments;
 	}
 
+	@XmlElement(name = "ticketList")
 	public List<Ticket> getTicketList() {
 		return ticketList;
 	}
@@ -48,7 +49,5 @@ public class UserSupport extends User {
 	public void setTicketList(List<Ticket> ticketList) {
 		this.ticketList = ticketList;
 	}
-	
-	
 
 }

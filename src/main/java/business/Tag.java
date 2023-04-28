@@ -15,11 +15,16 @@ public class Tag implements Serializable{
 	@GeneratedValue
 	private long tagId;
 	
-	private String content;
+	//La valeur textuelle du tag
+	private String value;
 	
 	//relation ticket tag
 	@ManyToMany
-	private List<Ticket> ticketList= new ArrayList<Ticket>();
+	private List<Ticket> ticketList;
+	
+	public Tag() {
+		ticketList= new ArrayList<Ticket>();
+	}
 
 	public long getTagId() {
 		return tagId;
@@ -28,13 +33,13 @@ public class Tag implements Serializable{
 	public void setTagId(long tagId) {
 		this.tagId = tagId;
 	}
-
-	public String getContent() {
-		return content;
+	
+	public String getValue() {
+		return value;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setValue(String value) {
+		this.value = value;
 	}
 
 	public List<Ticket> getTicketList() {

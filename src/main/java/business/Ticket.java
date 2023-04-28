@@ -16,34 +16,45 @@ public class Ticket implements Serializable {
 	@Id
 	@GeneratedValue
 	private long ticketId;
-	
-	private String content;
-	
-	//Plusieurs tickets appartiennent ‡ un utilisateur
-	//La relation entre la classe Ticket et la classe User est une relation OneToMany
+
+	/**
+	 * La description du probl√®me soulev√© par le ticket
+	 */
+	private String description;
+
+	/**
+	 * L'utilisateur initiateur du ticket
+	 */
 	@ManyToOne
 	private User user;
-	
-	//Un ticket  est associÈ ‡ plusieurs sujets donc OneToMany
-	@OneToMany(mappedBy="ticket")
-	private List<Subject> subjectList =new ArrayList<Subject>();
-	
-	//Un ticket est associÈ ‡ plusieurs commentaires
-	@OneToMany(mappedBy = "ticket")
-	private List<Comment> commentList= new ArrayList<Comment>();
 
-	//Un ticket ‡ un seul etat
+	// L'√©tat en temps r√©el du ticket
 	@ManyToOne
 	private State state;
-	
-	//Relation ticket et Tag
-	@ManyToMany(mappedBy="ticketList")
-	private List<Tag> tagList= new ArrayList<Tag>();
-	
-	// relation ticket et utilisateur Support
-		
-	@ManyToMany(mappedBy="ticketList")
-	private List<UserSupport> userSupportList= new ArrayList<UserSupport>();
+
+	// Le sujet associ√© au ticket
+	@ManyToOne
+	private Subject subject;
+
+	/**
+	 * Les commentaires du ticket
+	 */
+	@OneToMany(mappedBy = "ticket")
+	private List<Comment> commentList;
+
+	// Les tags du ticket
+	@ManyToMany(mappedBy = "ticketList")
+	private List<Tag> tagList;
+
+	// Les users support en charge du ticket
+	@ManyToMany(mappedBy = "ticketList")
+	private List<UserSupport> userSupportList;
+
+	public Ticket() {
+		commentList = new ArrayList<>();
+		tagList = new ArrayList<>();
+		userSupportList = new ArrayList<>();
+	}
 
 	public long getTicketId() {
 		return ticketId;
@@ -53,12 +64,12 @@ public class Ticket implements Serializable {
 		this.ticketId = ticketId;
 	}
 
-	public String getContent() {
-		return content;
+	public String getDescription() {
+		return description;
 	}
 
-	public void setContent(String content) {
-		this.content = content;
+	public void setDescription(String description) {
+		this.description = description;
 	}
 
 	public User getUser() {
@@ -69,12 +80,12 @@ public class Ticket implements Serializable {
 		this.user = user;
 	}
 
-	public List<Subject> getSubjectList() {
-		return subjectList;
+	public Subject getSubject() {
+		return subject;
 	}
 
-	public void setSubjectList(List<Subject> subjectList) {
-		this.subjectList = subjectList;
+	public void setSubject(Subject subject) {
+		this.subject = subject;
 	}
 
 	public List<Comment> getCommentList() {
@@ -83,6 +94,10 @@ public class Ticket implements Serializable {
 
 	public void setCommentList(List<Comment> commentList) {
 		this.commentList = commentList;
+	}
+
+	public void addComment(Comment c) {
+		commentList.add(c);
 	}
 
 	public State getState() {
@@ -101,6 +116,10 @@ public class Ticket implements Serializable {
 		this.tagList = tagList;
 	}
 
+	public void addTag(Tag tag) {
+		tagList.add(tag);
+	}
+
 	public List<UserSupport> getUserSupportList() {
 		return userSupportList;
 	}
@@ -108,6 +127,5 @@ public class Ticket implements Serializable {
 	public void setUserSupportList(List<UserSupport> userSupportList) {
 		this.userSupportList = userSupportList;
 	}
-	
-	
+
 }

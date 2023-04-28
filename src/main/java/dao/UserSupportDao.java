@@ -4,8 +4,8 @@ import business.UserSupport;
 
 public class UserSupportDao extends AbstractJpaDao<Long, UserSupport> {
 
-	public UserSupportDao(Class<UserSupport> clazz) {
-		super(clazz);
+	public UserSupportDao() {
+		super(UserSupport.class);
 		
 	}
 

@@ -1,11 +1,12 @@
 package dao;
 
+import business.State;
 import business.Subject;
 
 public class SubjectDao extends AbstractJpaDao<Long, Subject>{
 
-	public SubjectDao(Class<Subject> clazz) {
-		super(clazz);
+	public SubjectDao() {
+		super(Subject.class);
 		
 	}
 

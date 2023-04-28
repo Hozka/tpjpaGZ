@@ -15,22 +15,32 @@ public class State implements Serializable {
 	@GeneratedValue
 	private long stateId;
 	
-	private String content;
-	//Un etat est associé à plusieurs tickets
+	//La valeur de l'Ã©tat du ticket
+	private String value;
+	
+	//Un etat est associï¿½ ï¿½ plusieurs tickets
 	@OneToMany(mappedBy = "state")
-	private List<Ticket> ticketsList = new ArrayList<Ticket>();
+	private List<Ticket> ticketsList;
+	
+	public State() {
+		ticketsList = new ArrayList<Ticket>();
+	}
+	
 	public long getStateId() {
 		return stateId;
 	}
 	public void setStateId(long stateId) {
 		this.stateId = stateId;
 	}
-	public String getContent() {
-		return content;
+	
+	public String getValue() {
+		return value;
 	}
-	public void setContent(String content) {
-		this.content = content;
+
+	public void setValue(String value) {
+		this.value = value;
 	}
+
 	public List<Ticket> getTicketsList() {
 		return ticketsList;
 	}

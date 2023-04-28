@@ -21,8 +21,13 @@ import java.util.Set;
 
 import javax.ws.rs.core.Application;
 
-import rest.PetResource;
+import rest.CommentResource;
+import rest.StateResource;
+import rest.SubjectResource;
+import rest.TagResource;
+import rest.TicketResource;
 import rest.UserResource;
+import rest.UserSupportResource;
 import io.swagger.v3.jaxrs2.integration.resources.OpenApiResource;
 
 public class TestApplication extends Application {
@@ -33,8 +38,13 @@ public class TestApplication extends Application {
 
         final Set<Class<?>> clazzes = new HashSet<Class<?>>();
 
-        clazzes.add(PetResource.class);
         clazzes.add(UserResource.class);
+        clazzes.add(UserSupportResource.class);
+        clazzes.add(TagResource.class);
+        clazzes.add(TicketResource.class);
+        clazzes.add(SubjectResource.class);
+        clazzes.add(StateResource.class);
+        clazzes.add(CommentResource.class);
         clazzes.add(OpenApiResource.class);
         return clazzes;
     }

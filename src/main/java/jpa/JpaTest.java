@@ -25,7 +25,7 @@ public class JpaTest {
 
 
 		try {
-			test.createUser();
+			//test.createUser();
 
 		} catch (Exception e) {
 			e.printStackTrace();

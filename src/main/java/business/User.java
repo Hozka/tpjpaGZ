@@ -21,12 +21,31 @@ public class User implements Serializable {
 	@GeneratedValue
 	private long userId;
 	
-	private String content;
+	/**
+	 * Nom de l'utilisateur
+	 */
+	private String lastName;
+	
+	/**
+	 * Prénom de l'utilisateur
+	 */
+	private String firstName;
+	
+	/**
+	 * Type de l'utilisateur
+	 * 0: Normal, 1: Support
+	 */
+	private String type;
+	
 	//Declarer une liste de ticket parce qu'un user a plusieurs tickets
 	@OneToMany(mappedBy = "user")
-	private List<Ticket> ticketsList = new ArrayList<Ticket>();
+	private List<Ticket> ticketsList;
 	
-
+	public User() {
+		ticketsList = new ArrayList<Ticket>();
+		type = "0";
+	}
+	
 	@XmlElement(name = "id")
 	public long getUserId() {
 		return userId;
@@ -34,20 +53,40 @@ public class User implements Serializable {
 	public void setUserId(long userId) {
 		this.userId = userId;
 	}
-
-
-	@XmlElement(name = "content")
-	public String getContent() {
-		return content;
+	
+	@XmlElement(name = "lastName")
+	public String getLastName() {
+		return lastName;
 	}
-	public void setContent(String content) {
-		this.content = content;
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
 	}
+
+	@XmlElement(name = "firstName")
+	public String getFirstName() {
+		return firstName;
+	}
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+	
+	@XmlElement(name = "type")
+	public String getType() {
+		return type;
+	}
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	@XmlElement(name = "ticketsList")
 	public List<Ticket> getTicketsList() {
 		return ticketsList;
 	}
 	public void setTicketsList(List<Ticket> ticketsList) {
 		this.ticketsList = ticketsList;
+	}
+	public void addTicket(Ticket t) {
+		ticketsList.add(t);
 	}
 	
 	
