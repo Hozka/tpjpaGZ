@@ -80,11 +80,15 @@ public class TicketResource {
 			@Parameter(description = "add tag to ticket", required = true) Tag tag) {
 		Ticket t = ticketDAO.findOne(ticketId);
 		if (t != null) {
+			System.out.println("Ici 1");
 			TagDao tampDAO = new TagDao();
 			Tag tmp = tampDAO.findOne(tag.getTagId());
+			System.out.println(tmp.getTagId() + " Ici " + tmp.getValue());
 			if (tmp != null) {
+				System.out.println("Ici 2");
 				t.addTag(tmp);
-				ticketDAO.save(t);
+				System.out.println(" Ici 3 " + t.getTagList().get(0) );
+				ticketDAO.update(t);
 			}
 			
 		}
@@ -102,7 +106,7 @@ public class TicketResource {
 			State tmp = tampDAO.findOne(state.getStateId());
 			if (tmp != null) {
 				t.setState(tmp);
-				ticketDAO.save(t);
+				ticketDAO.update(t);
 			}
 		}
 		return t;

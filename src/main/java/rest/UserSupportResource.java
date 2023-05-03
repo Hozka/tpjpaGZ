@@ -65,7 +65,7 @@ public class UserSupportResource {
 
 				// On ajoute le commentaire au ticket puis on le sauvegarde
 				t.addComment(c);
-				ticketDAO.save(t);
+				ticketDAO.update(t);
 			}
 		}
 		return tmpUser;

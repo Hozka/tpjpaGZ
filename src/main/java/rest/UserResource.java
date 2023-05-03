@@ -60,7 +60,7 @@ public class UserResource {
 			Ticket tmp = tDAO.findOne(ticket.getTicketId());
 			if (tmp != null) {
 				user.addTicket(tmp);
-				userDAO.save(user);
+				userDAO.update(user);
 			}
 		}
 		return user;

@@ -44,7 +44,7 @@ public class Ticket implements Serializable {
 
 	// Les tags du ticket
 	@ManyToMany(mappedBy = "ticketList")
-	private List<Tag> tagList;
+	private List<Tag> tagList =  new ArrayList<>();;
 
 	// Les users support en charge du ticket
 	@ManyToMany(mappedBy = "ticketList")
