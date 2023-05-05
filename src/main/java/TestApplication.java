@@ -22,6 +22,7 @@ import java.util.Set;
 import javax.ws.rs.core.Application;
 
 import rest.CommentResource;
+import rest.CorsFilter;
 import rest.StateResource;
 import rest.SubjectResource;
 import rest.TagResource;
@@ -46,6 +47,7 @@ public class TestApplication extends Application {
         clazzes.add(StateResource.class);
         clazzes.add(CommentResource.class);
         clazzes.add(OpenApiResource.class);
+        clazzes.add(CorsFilter.class);
         return clazzes;
     }
 
