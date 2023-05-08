@@ -26,8 +26,7 @@ public class Tag implements Serializable{
 		ticketList= new ArrayList<Ticket>();
 	}
 	
-	public Tag(long tagId, String value, List<Ticket> ticketList) {
-		this.tagId = tagId;
+	public Tag(String value, List<Ticket> ticketList) {
 		this.value = value;
 		this.ticketList = ticketList;
 	}

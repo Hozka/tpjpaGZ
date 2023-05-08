@@ -26,8 +26,7 @@ public class State implements Serializable {
 		ticketsList = new ArrayList<Ticket>();
 	}
 	
-	public State(long stateId, String value, List<Ticket> ticketsList) {
-		this.stateId = stateId;
+	public State(String value, List<Ticket> ticketsList) {
 		this.value = value;
 		this.ticketsList = ticketsList;
 	}

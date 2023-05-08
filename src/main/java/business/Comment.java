@@ -29,8 +29,7 @@ public class Comment implements Serializable {
 
 	
 	
-	public Comment(long commentId, String texte, Ticket ticket, UserSupport userSupport) {
-		this.commentId = commentId;
+	public Comment(String texte, Ticket ticket, UserSupport userSupport) {
 		this.texte = texte;
 		this.ticket = ticket;
 		this.userSupport = userSupport;

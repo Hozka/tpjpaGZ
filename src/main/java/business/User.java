@@ -48,12 +48,10 @@ public class User implements Serializable {
 	
 	
 	
-	public User(long userId, String lastName, String firstName, String type, List<Ticket> ticketsList) {
-		this.userId = userId;
+	public User(String lastName, String firstName, String type) {
 		this.lastName = lastName;
 		this.firstName = firstName;
 		type = "0";
-		this.ticketsList = ticketsList;
 	}
 
 

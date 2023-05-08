@@ -15,7 +15,7 @@ public class Subject implements Serializable {
 	
 	@Id
 	@GeneratedValue
-	private int subjectId;
+	private long subjectId;
 	
 	/*
 	 * Le texte du sujet*/
@@ -30,17 +30,16 @@ public class Subject implements Serializable {
 		ticketList = new ArrayList<>();
 	}
 
-	public Subject(int subjectId, String text, List<Ticket> ticketList) {
-		this.subjectId = subjectId;
+	public Subject(String text, List<Ticket> ticketList) {
 		this.text = text;
 		this.ticketList = ticketList;
 	}
 
-	public int getSubjectId() {
+	public long getSubjectId() {
 		return subjectId;
 	}
 
-	public void setSubjectId(int subjectId) {
+	public void setSubjectId(long subjectId) {
 		this.subjectId = subjectId;
 	}
 
