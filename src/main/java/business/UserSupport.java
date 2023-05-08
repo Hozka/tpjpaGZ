@@ -31,6 +31,16 @@ public class UserSupport extends User {
 		ticketList = new ArrayList<Ticket>();
 		setType("1");
 	}
+	
+	
+
+	public UserSupport(List<Comment> comments, List<Ticket> ticketList) {
+		this.comments = comments;
+		this.ticketList = ticketList;
+		setType("1");
+	}
+
+
 
 	@XmlElement(name = "comments")
 	public List<Comment> getComments() {

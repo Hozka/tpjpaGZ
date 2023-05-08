@@ -25,6 +25,14 @@ public class Tag implements Serializable{
 	public Tag() {
 		ticketList= new ArrayList<Ticket>();
 	}
+	
+	public Tag(long tagId, String value, List<Ticket> ticketList) {
+		this.tagId = tagId;
+		this.value = value;
+		this.ticketList = ticketList;
+	}
+
+
 
 	public long getTagId() {
 		return tagId;

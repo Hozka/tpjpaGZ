@@ -2,6 +2,7 @@ package business;
 
 import javax.persistence.Entity;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.GeneratedValue;
@@ -22,6 +23,18 @@ public class Subject implements Serializable {
 	
 	@OneToMany(mappedBy = "subject")
 	private List<Ticket> ticketList;
+
+	
+	
+	public Subject() {
+		ticketList = new ArrayList<>();
+	}
+
+	public Subject(int subjectId, String text, List<Ticket> ticketList) {
+		this.subjectId = subjectId;
+		this.text = text;
+		this.ticketList = ticketList;
+	}
 
 	public int getSubjectId() {
 		return subjectId;

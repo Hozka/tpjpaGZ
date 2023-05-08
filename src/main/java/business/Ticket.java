@@ -56,6 +56,22 @@ public class Ticket implements Serializable {
 		userSupportList = new ArrayList<>();
 	}
 
+	
+	
+	public Ticket(long ticketId, String description, User user, State state, Subject subject, List<Comment> commentList,
+			List<Tag> tagList, List<UserSupport> userSupportList) {
+		this.ticketId = ticketId;
+		this.description = description;
+		this.user = user;
+		this.state = state;
+		this.subject = subject;
+		this.commentList = commentList;
+		this.tagList = tagList;
+		this.userSupportList = userSupportList;
+	}
+
+
+
 	public long getTicketId() {
 		return ticketId;
 	}

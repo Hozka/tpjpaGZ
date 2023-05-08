@@ -46,6 +46,18 @@ public class User implements Serializable {
 		type = "0";
 	}
 	
+	
+	
+	public User(long userId, String lastName, String firstName, String type, List<Ticket> ticketsList) {
+		this.userId = userId;
+		this.lastName = lastName;
+		this.firstName = firstName;
+		type = "0";
+		this.ticketsList = ticketsList;
+	}
+
+
+
 	@XmlElement(name = "id")
 	public long getUserId() {
 		return userId;
