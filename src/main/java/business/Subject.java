@@ -30,9 +30,9 @@ public class Subject implements Serializable {
 		ticketList = new ArrayList<>();
 	}
 
-	public Subject(String text, List<Ticket> ticketList) {
+	public Subject(String text) {
 		this.text = text;
-		this.ticketList = ticketList;
+		this.ticketList = new ArrayList<>();
 	}
 
 	public long getSubjectId() {

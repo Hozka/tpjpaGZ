@@ -58,15 +58,14 @@ public class Ticket implements Serializable {
 
 	
 	
-	public Ticket(String description, User user, State state, Subject subject, List<Comment> commentList,
-			List<Tag> tagList, List<UserSupport> userSupportList) {
+	public Ticket(String description, User user, State state, Subject subject) {
 		this.description = description;
 		this.user = user;
 		this.state = state;
 		this.subject = subject;
-		this.commentList = commentList;
-		this.tagList = tagList;
-		this.userSupportList = userSupportList;
+		commentList = new ArrayList<>();
+		tagList = new ArrayList<>();
+		userSupportList = new ArrayList<>();
 	}
 
 
