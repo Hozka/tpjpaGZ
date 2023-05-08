@@ -27,7 +27,8 @@ public class Comment implements Serializable {
 	@ManyToOne
 	private UserSupport userSupport;
 
-	
+	public Comment() {
+	}
 	
 	public Comment(String texte, Ticket ticket, UserSupport userSupport) {
 		this.texte = texte;
